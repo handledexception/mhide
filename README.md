@@ -1,5 +1,7 @@
 # mhide
 
+[![Build](https://github.com/handledexception/mhide/actions/workflows/build.yml/badge.svg)](https://github.com/handledexception/mhide/actions/workflows/build.yml)
+
 Auto-hide the mouse cursor on Windows.
 
 Why? Modern OLED displays have a penchant for screen burn. To help prevent this I like to keep my desktop background pure black and would like it if my mouse cursor would just disappear when I'm not at the PC, or after a period of inactivity.
@@ -41,7 +43,18 @@ Requires Visual Studio 2022 (Community or Build Tools) with the "Desktop develop
 build.cmd
 ```
 
-This produces `build\mhide.exe`. To regenerate the icon:
+This produces `build\mhide.exe`.
+
+### Continuous integration
+
+[.github/workflows/build.yml](.github/workflows/build.yml) builds on a `windows-latest` runner for every push to `main`, every pull request, and on manual dispatch. It runs `build.cmd`, fails if the exe imports any CRT runtime DLL (it must stay statically linked), and uploads `mhide.exe` as a workflow artifact. Pushing a tag like `v1.0.0` additionally creates a GitHub release with the exe attached:
+
+```
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+To regenerate the icon:
 
 ```
 powershell -ExecutionPolicy Bypass -File tools\make-icon.ps1
