@@ -1,0 +1,6 @@
+build/
+*.obj
+*.res
+*.pdb
+*.ilk
+tools/icon-preview-256.png
