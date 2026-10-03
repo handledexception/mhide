@@ -1,0 +1,11 @@
+* text=auto
+*.cmd text eol=crlf
+*.c text
+*.h text
+*.rc text
+*.yml text
+*.md text
+*.ps1 text
+*.svg text
+*.ico binary
+*.png binary
