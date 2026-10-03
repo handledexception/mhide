@@ -41,6 +41,7 @@ BEGIN
         BEGIN
             VALUE "FileDescription", "mhide - auto-hide the mouse cursor"
             VALUE "FileVersion", "1.0.0.0"
+            VALUE "LegalCopyright", "Copyright (c) 2026 Paul Hindt. MIT License."
             VALUE "InternalName", "mhide"
             VALUE "OriginalFilename", "mhide.exe"
             VALUE "ProductName", "mhide"

@@ -1,10 +1,17 @@
-# mhide
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.png">
+    <img src="assets/logo.png" alt="mhide" width="420">
+  </picture>
+</p>
 
-[![Build](https://github.com/handledexception/mhide/actions/workflows/build.yml/badge.svg)](https://github.com/handledexception/mhide/actions/workflows/build.yml)
+<p align="center">
+  <a href="https://github.com/handledexception/mhide/actions/workflows/build.yml"><img src="https://github.com/handledexception/mhide/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+</p>
 
 Auto-hide the mouse cursor on Windows.
 
-Why? Modern OLED displays have a penchant for screen burn. To help prevent this I like to keep my desktop background pure black and would like it if my mouse cursor would just disappear when I'm not at the PC, or after a period of inactivity.
+Why? Modern OLED displays have a penchant for screen burn. To help prevent this I set my desktop background to pure black, and hit Win+D before I get up from the PC. The mouse cursor can be tucked away on the side of the screen to hide most of it, although a small outline always shows, especially with the Windows System Black mouse theme. Since I can't always remember to hide the mouse when I get up from the PC, I created mhide to do it for me.
 
 ## What it does
 
@@ -66,4 +73,9 @@ powershell -ExecutionPolicy Bypass -File tools\make-icon.ps1
 - [src/mhide.rc](src/mhide.rc), [src/resource.h](src/resource.h): settings dialog, icon, version info, and manifest.
 - [src/mhide.manifest](src/mhide.manifest): common controls v6 and per-monitor DPI awareness.
 - [tools/make-icon.ps1](tools/make-icon.ps1): generates `src/mhide.ico`.
+- [tools/make-logo.ps1](tools/make-logo.ps1): renders `assets/logo.png` and `assets/logo-dark.png`; [assets/logo.svg](assets/logo.svg) is the vector source.
 - [build.cmd](build.cmd): one-step MSVC build.
+
+## License
+
+[MIT](LICENSE). Copyright (c) 2026 Paul Hindt.
