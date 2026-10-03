@@ -50,7 +50,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "${{ github.ref_name }}" build/mhide.exe `
-            --repo "${{ github.repository }}" `
-            --title "mhide ${{ github.ref_name }}" `
-            --generate-notes
+          # Create the release on first run; on a re-tagged version replace the exe in place.
+          $PSNativeCommandUseErrorActionPreference = $false
+          $tag = "${{ github.ref_name }}"
+          $repo = "${{ github.repository }}"
+          gh release view $tag --repo $repo *> $null
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "Release $tag exists; replacing mhide.exe"
+            gh release upload $tag build/mhide.exe --clobber --repo $repo
+          } else {
+            gh release create $tag build/mhide.exe --repo $repo --title "mhide $tag" --generate-notes
+          }
+          exit $LASTEXITCODE
